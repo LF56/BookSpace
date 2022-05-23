@@ -1,10 +1,45 @@
 # BookSpace
 
-## User Story
-# As a user, I want to be able to register or log in if I have already registered.
-# When I am logged in, I want to be able to log out
-# As a user, when I'm logged in, I want to be able to search for and purchase books using a credit card.
-# After I purchase a book, I want them to be listed in my account and read them within the application.
-# As a user, I want to be able to connect with others reading the same book and discuss the books we are reading.
-# When reading and I leave the application, I want to be able to save my page in the book I am reading.
-# As a user, I want to be able to reply to other's comments on my posts or comment on other's posts.
+
+  ## Table of Contents
+  - [User-Story](#User-Story)
+  - [Description](#Description)
+  - [Installation](#Install)
+  - [Usage](#Usage)
+  - [Images](#Images)
+  - [Deployed Site](#Deployed-Site)
+  - [Contributers](#Contributers)
+
+# User Story
+<p align="center">AS AN enthusiastic reader
+I WANT to search for new books to read
+SO THAT I can connect with new and previous readers to discuss the book<p align="center">
+<br>
+
+
+# Description
+
+
+
+
+# Install
+
+
+# Usage
+
+
+
+# Images
+
+
+
+# Deployed-Site
+
+
+# Contributers
+
+[Brooke Paglia](https://github.com/BrookesCodeStuff)<br>
+[Heather Tamisiea](https://github.com/hdtamisiea)<br>
+[Leah Fox](https://github.com/LF56)<br>
+[Logan Palmer](https://github.com/hdtamisiea)<br>
+
