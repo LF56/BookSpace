@@ -1,41 +1,65 @@
-const { gql } = require('apollo-server-express');
+const { gql } = require("apollo-server-express");
 
 const typeDefs = gql`
+  type Query {
+    me: User
+    users: [User]
+    user(username: String!): User
+    thoughts(_id: ID, username: String, bookId: String): [Thought]
+    thought(_id: ID!): Thought
+  }
+  input BookInput {
+    authors: [String]
+    description: String!
+    bookId: String!
+    image: String
+    link: String
+    title: String!
+  }
   type User {
-    _id: ID!
-    username: String!
-    email: String!
+    _id: ID
+    username: String
+    email: String
     bookCount: Int
     savedBooks: [Book]
+  }
+  type Book {
+    _id: ID!
+    bookId: String
+    authors: [String]
+    description: String
+    title: String
+    image: String
+    link: String
   }
   type Auth {
     token: ID!
     user: User
   }
-  type Book {
-    bookId: ID!
-    authors: [String]
-    description: String
-    title: String
-    image: String
-    link: String
+
+  type Thought {
+    _id: ID
+    thoughtText: String
+    createdAt: String
+    username: String
+    reactionCount: Int
+    reactions: [Reaction]
   }
-  input InputBook {
-    bookId: String
-    authors: [String]
-    title: String
-    description: String
-    image: String
-    link: String
+
+  type Reaction {
+    _id: ID
+    reactionBody: String
+    createdAt: String
+    username: String
   }
-  type Query {
-    me: User
-  }
+
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveBook(newBook: InputBook!): User
+    saveBook(bookData: BookInput!): User
     removeBook(bookId: ID!): User
+    addThought(thoughtText: String!, reviewedBook: BookInput!): Thought
+    addReaction(thoughtId: ID!, reactionBody: String!): Thought
   }
 `;
 
