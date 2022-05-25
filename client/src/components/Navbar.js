@@ -13,6 +13,9 @@ const AppNavbar = () => {
 
 <div class="uk-navbar-right" id="nav-right">
     <ul class="uk-navbar-nav" id="nav">
+        <li>
+            <a href="#">Search Books</a>
+        </li>
         <li ><a href="#">Have Read</a></li>
         <li>
             <a href="#">Want To Read</a>
