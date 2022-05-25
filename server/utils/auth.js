@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
-require("dotenv").config();
 const expiration = "2h";
+require("dotenv").config();
 
 module.exports = {
   authMiddleware: function ({ req }) {
@@ -20,7 +20,6 @@ module.exports = {
       });
       req.user = data;
     } catch (err) {
-      console.error(err);
       console.log("Invalid token");
     }
 
