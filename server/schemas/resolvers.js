@@ -8,12 +8,10 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findOne({ _id: context.user._id }).select(
           "-__v -password"
-          
         );
-
         return userData;
       }
-      throw new AuthenticationError("Not logged in");
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 
@@ -40,35 +38,30 @@ const resolvers = {
 
       return { token, user };
     },
-    // Accepts a book author's array, description, title, bookId, image, and link as parameters; returns a User type. (Look into creating what's known as an input type to handle all of these parameters!)
-    saveBook: async (parent, { bookData }, context) => {
-        if (context.user) {
-          const updatedUser = await User.findByIdAndUpdate(
-              { _id: context.user._id },
-              { $push: { savedBooks: bookData } },
-          
-            { new: true }
-          );
-  
-          return updatedUser;
-        }
-  
-        throw new AuthenticationError('You need to be logged in!');
-      },
-      removeBook: async (parent, { bookId }, context) => {
-        if (context.user) {
-          const updatedUser = await User.findByIdAndUpdate(
-              { _id: context.user._id },
-              { $pull: { savedBooks: { bookId: bookId } }},
-          
-            { new: true }
-          );
-  
-          return updatedUser;
-        }
-  
-        throw new AuthenticationError('You need to be logged in!');
-      },
+    addToList: async (parent, { input }, context) => {
+      console.log(input);
+      if (context.user) {
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { readingList: input } },
+          { new: true }
+        );
+        console.log(updatedUser);
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    removeBook: async (parent, { bookId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $pull: { readingList: { bookId } } },
+          { new: true }
+        );
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 };
 
