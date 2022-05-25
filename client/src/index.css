@@ -7,6 +7,34 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root{
+  background-image: url("image/galaxy.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+.uk-navbar-nav>li>a {
+color: aliceblue;
+font-size:xx-large;
+margin: auto;
+padding: auto;
+  text-transform: uppercase;
+  transition: .1s ease-in-out;
+  transition-property: color,background-color;
+}
+#nav-right{
+display: flex;
+justify-content: end;
+
+}
+.uk-navbar-container:not(.uk-navbar-transparent) {
+background: none;
+}
+
+
+
+  
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
