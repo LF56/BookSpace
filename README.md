@@ -41,5 +41,5 @@ SO THAT I can connect with new and previous readers to discuss the book<p align=
 [Brooke Paglia](https://github.com/BrookesCodeStuff)<br>
 [Heather Tamisiea](https://github.com/hdtamisiea)<br>
 [Leah Fox](https://github.com/LF56)<br>
-[Logan Palmer](https://github.com/hdtamisiea)<br>
+[Logan Palmer](https://github.com/loganpalmer95)<br>
 
