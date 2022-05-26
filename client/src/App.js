@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ApolloClient, InMemoryCache,ApolloProvider, createHttpLink,} from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import AppNavbar from './components/Navbar';
+import SearchBooks from './pages/SearchBooks';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -30,7 +31,7 @@ function App() {
       <>
        <AppNavbar />
         <Routes>
-        
+        <Route exact path='/' element={<SearchBooks />} />
           <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
         </Routes>
       </>
