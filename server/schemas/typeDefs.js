@@ -5,17 +5,10 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    reviews(_id: ID, username: String, bookId: String): [Review]
+    reviews: [Review]
     review(_id: ID!): Review
   }
-  input BookInput {
-    authors: [String]
-    description: String!
-    bookId: String!
-    image: String
-    link: String
-    title: String!
-  }
+
   type User {
     _id: ID!
     username: String!
@@ -56,10 +49,6 @@ const typeDefs = gql`
   input ReviewInput {
     stars: String
     reviewText: String
-  }
-
-  type Query {
-    me: User
   }
 
   type Mutation {
