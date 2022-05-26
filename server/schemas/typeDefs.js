@@ -59,8 +59,6 @@ const typeDefs = gql`
     addToList(input: BookInput!): Book
     markAsRead(bookId: ID!): User
     removeBook(bookId: ID!): User
-    addThought(thoughtText: String!, reviewedBook: BookInput!): Thought
-    addReaction(thoughtId: ID!, reactionBody: String!): Thought
   }
 `;
 
