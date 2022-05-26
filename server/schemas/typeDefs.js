@@ -17,12 +17,17 @@ const typeDefs = gql`
     title: String!
   }
   type User {
-    _id: ID
-    username: String
-    email: String
-    bookCount: Int
-    savedBooks: [Book]
+    _id: ID!
+    username: String!
+    email: String!
+    readingList: [Book]
   }
+
+  type Auth {
+    token: ID!
+    user: User
+  }
+
   type Book {
     _id: ID!
     bookId: String
@@ -32,31 +37,38 @@ const typeDefs = gql`
     image: String
     link: String
   }
-  type Auth {
-    token: ID!
-    user: User
+
+  input BookInput {
+    bookId: String
+    authors: [String]
+    title: String
+    description: String
+    image: String
+    link: String
   }
 
-  type Thought {
-    _id: ID
-    thoughtText: String
-    createdAt: String
-    username: String
-    reactionCount: Int
-    reactions: [Reaction]
+  type Review {
+    _id: ID!
+    stars: String
+    reviewText: String
   }
 
-  type Reaction {
-    _id: ID
-    reactionBody: String
-    createdAt: String
-    username: String
+  input ReviewInput {
+    stars: String
+    reviewText: String
+  }
+
+  type Query {
+    me: User
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveBook(bookData: BookInput!): User
+    createReview(input: ReviewInput): Review
+    addComment(reviewId: ID!, commentText: String!): Review
+    addToList(input: BookInput!): Book
+    markAsRead(bookId: ID!): User
     removeBook(bookId: ID!): User
     addThought(thoughtText: String!, reviewedBook: BookInput!): Thought
     addReaction(thoughtId: ID!, reactionBody: String!): Thought
