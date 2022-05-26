@@ -5,8 +5,8 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    thoughts(_id: ID, username: String, bookId: String): [Thought]
-    thought(_id: ID!): Thought
+    reviews(_id: ID, username: String, bookId: String): [Review]
+    review(_id: ID!): Review
   }
   input BookInput {
     authors: [String]
