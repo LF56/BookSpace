@@ -1,7 +1,6 @@
 const { Schema, model } = require("mongoose");
 const commentSchema = require("./Comment");
 const dateFormat = require("../utils/dateFormat");
-const bookSchema = require("./Book");
 
 const reviewSchema = new Schema(
   {
@@ -21,6 +20,10 @@ const reviewSchema = new Schema(
       required: true,
     },
     bookId: {
+      type: String,
+      required: true,
+    },
+    stars: {
       type: String,
       required: true,
     },

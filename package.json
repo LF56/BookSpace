@@ -68,7 +68,13 @@
   },
   "scripts": {
     "start": "node server/server.js",
+<<<<<<< HEAD
     "test": "echo \"Error: no test specified\" && exit 1"
+=======
+    "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build"
+>>>>>>> main
   },
   "repository": {
     "type": "git",
