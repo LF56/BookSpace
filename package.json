@@ -11,6 +11,7 @@
     "body-parser": "^1.20.0",
     "bytes": "^3.1.2",
     "call-bind": "^1.0.2",
+    "concurrently": "^7.2.1",
     "content-disposition": "^0.5.4",
     "content-type": "^1.0.4",
     "cookie": "^0.5.0",
@@ -68,13 +69,9 @@
   },
   "scripts": {
     "start": "node server/server.js",
-<<<<<<< HEAD
-    "test": "echo \"Error: no test specified\" && exit 1"
-=======
     "develop": "concurrently \"cd server && npm run watch\" \"cd client && npm start\"",
     "install": "cd server && npm i && cd ../client && npm i",
     "build": "cd client && npm run build"
->>>>>>> main
   },
   "repository": {
     "type": "git",
