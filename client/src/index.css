@@ -30,12 +30,30 @@ justify-content: end;
 .uk-navbar-container:not(.uk-navbar-transparent) {
 background: none;
 }
+.uk-button-default {
+  background-color: transparent;
+  color:aliceblue;
+  border: 1px solid #e5e5e5;
+}
+h1 {
+  font-size: 2.23125rem;
+  line-height: 1.2;
+  color: #e5e5e5;
+  text-align: center;
+}
 
+#search-book {
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: #0d0b2184;
+text-align: center;
 
+}
 
-  
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
