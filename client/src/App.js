@@ -33,10 +33,9 @@ function App() {
       <>
        <AppNavbar />
         <Routes>
-        <Route exact path='/' element={<SearchBooks />} />
-        <Route exact path='/want' element={<WantToRead />} />
-        <Route exact path='/have' element={<HaveRead />} />
-
+        <Route path='/' element={<SearchBooks/>} />
+        <Route path='/want' element={<WantToRead/>} />
+        <Route path='/have' element={<HaveRead/>} />
           <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
         </Routes>
       </>
