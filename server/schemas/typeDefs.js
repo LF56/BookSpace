@@ -43,18 +43,22 @@ const typeDefs = gql`
   type Review {
     _id: ID!
     stars: String
+    username: String
+    bookId: String
     reviewText: String
   }
 
   input ReviewInput {
     stars: String
+    username: String
+    bookId: String
     reviewText: String
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    createReview(input: ReviewInput): Review
+    createReview(input: ReviewInput!): Review
     addComment(reviewId: ID!, commentText: String!): Review
     addToList(input: BookInput!): Book
     markAsRead(bookId: ID!): User

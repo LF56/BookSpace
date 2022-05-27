@@ -1,5 +1,5 @@
 const { AuthenticationError } = require("apollo-server-express");
-const { User, Book } = require("../models");
+const { User, Review } = require("../models");
 const { signToken } = require("../utils/auth");
 
 const resolvers = {
@@ -39,7 +39,6 @@ const resolvers = {
       return { token, user };
     },
     addToList: async (parent, { input }, context) => {
-      console.log(input);
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
@@ -50,6 +49,27 @@ const resolvers = {
         return updatedUser;
       }
       throw new AuthenticationError("You need to be logged in!");
+    },
+    createReview: async (parent, { input }, context) => {
+      console.log(input);
+      if (context.user) {
+        const review = await Review.create({
+          stars: input.stars,
+          reviewText: input.reviewText,
+          bookId: input.bookId,
+          username: context.user.username,
+        });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { reviews: review._id } },
+          { new: true }
+        );
+
+        return review;
+      }
+
+      throw new AuthenticationError("You must be logged in to leave a review.");
     },
     removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
