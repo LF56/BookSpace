@@ -72,6 +72,7 @@ const resolvers = {
       throw new AuthenticationError("You must be logged in to leave a review.");
     },
     removeBook: async (parent, { bookId }, context) => {
+      console.log(bookId);
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },

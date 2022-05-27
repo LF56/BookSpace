@@ -14,6 +14,7 @@ const typeDefs = gql`
     username: String!
     email: String!
     readingList: [Book]
+    completedList: [Book]
   }
 
   type Auth {
@@ -61,8 +62,8 @@ const typeDefs = gql`
     createReview(input: ReviewInput!): Review
     addComment(reviewId: ID!, commentText: String!): Review
     addToList(input: BookInput!): Book
-    markAsRead(bookId: ID!): User
-    removeBook(bookId: ID!): User
+    markAsRead(bookId: ID!): Book
+    removeBook(bookId: ID!): Book
   }
 `;
 
