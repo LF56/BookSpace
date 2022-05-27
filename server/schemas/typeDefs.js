@@ -5,17 +5,10 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    reviews(_id: ID, username: String, bookId: String): [Review]
+    reviews: [Review]
     review(_id: ID!): Review
   }
-  input BookInput {
-    authors: [String]
-    description: String!
-    bookId: String!
-    image: String
-    link: String
-    title: String!
-  }
+
   type User {
     _id: ID!
     username: String!
@@ -58,10 +51,6 @@ const typeDefs = gql`
     reviewText: String
   }
 
-  type Query {
-    me: User
-  }
-
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
@@ -70,8 +59,6 @@ const typeDefs = gql`
     addToList(input: BookInput!): Book
     markAsRead(bookId: ID!): User
     removeBook(bookId: ID!): User
-    addThought(thoughtText: String!, reviewedBook: BookInput!): Thought
-    addReaction(thoughtId: ID!, reactionBody: String!): Thought
   }
 `;
 
