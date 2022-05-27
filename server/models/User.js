@@ -26,6 +26,7 @@ const userSchema = new Schema(
       },
     ],
     readingList: [bookSchema],
+    completedList: [bookSchema],
   },
   {
     toJSON: {
