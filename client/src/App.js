@@ -4,6 +4,8 @@ import { ApolloClient, InMemoryCache,ApolloProvider, createHttpLink,} from '@apo
 import { setContext } from '@apollo/client/link/context';
 import AppNavbar from './components/Navbar';
 import SearchBooks from './pages/SearchBooks';
+import HaveRead from './pages/HaveRead';
+import WantToRead from './pages/WantToRead';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -32,6 +34,9 @@ function App() {
        <AppNavbar />
         <Routes>
         <Route exact path='/' element={<SearchBooks />} />
+        <Route exact path='/want' element={<WantToRead />} />
+        <Route exact path='/have' element={<HaveRead />} />
+
           <Route render={() => <h1 className='display-2'>Wrong page!</h1>} />
         </Routes>
       </>

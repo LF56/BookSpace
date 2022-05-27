@@ -13,7 +13,7 @@ const SearchBooks = () => {
     const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
     const [saveBook, { error }] = useMutation(SAVE_BOOK);
 
-    // set up useEffect hook to save `savedBookIds` list to localStorage on component unmount
+//SET SAVED BOOKS TO LOCAL STORAGE
     useEffect(() => {
         return () => saveBookIds(savedBookIds);
     });
@@ -48,7 +48,7 @@ const SearchBooks = () => {
         }
     };
 
-    // create function to handle saving a book to our database
+    // saving book to database
     const handleSaveBook = async (bookId) => {
         const bookToSave = searchedBooks.find((book) => book.bookId === bookId);
         const token = Auth.loggedIn() ? Auth.getToken() : null;
@@ -69,18 +69,19 @@ const SearchBooks = () => {
 
     return (
         <>
-            <div className="uk-container">
-                <h1>Find Books</h1>
+            <div className="uk-container" id='search-book'>
+                <h1 className='uk-align-center'>Find Books</h1>
                 <div class="uk-margin">
                     <input class="uk-input uk-form-success uk-form-width-medium" type="text" 
                     name='searchInput' 
                     placeholder="Find A Book" 
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
-                        onSubmit={handleFormSubmit} />
+                    onSubmit={handleFormSubmit} />
+                   <button class="uk-button uk-button-default" type='submit'>Search</button>
                 </div>
             </div>
-
+        
 
         </>
     );
