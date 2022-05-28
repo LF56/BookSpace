@@ -1,38 +1,37 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-:root{
+:root {
   background-image: url("image/galaxy.jpg");
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
-.uk-navbar-nav>li>a {
-color: aliceblue;
-font-size:xx-large;
-margin: auto;
-padding: auto;
+.uk-navbar-nav > li > a {
+  color: aliceblue;
+  font-size: xx-large;
+  margin: auto;
+  padding: auto;
   text-transform: uppercase;
-  transition: .1s ease-in-out;
-  transition-property: color,background-color;
+  transition: 0.1s ease-in-out;
+  transition-property: color, background-color;
 }
-#nav-right{
-display: flex;
-justify-content: end;
-
+#nav-right {
+  display: flex;
+  justify-content: end;
 }
 .uk-navbar-container:not(.uk-navbar-transparent) {
-background: none;
+  background: none;
 }
 .uk-button-default {
   background-color: transparent;
-  color:aliceblue;
+  color: aliceblue;
   border: 1px solid #e5e5e5;
 }
 h1 {
@@ -46,14 +45,10 @@ h1 {
   padding-left: 40px;
   padding-right: 40px;
   background-color: #0d0b2184;
-text-align: center;
-
+  text-align: center;
 }
-
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-
