@@ -7,6 +7,7 @@ const AppNavbar = () => {
   //possible modals for login/signup
   // const [showModal, setShowModal] = useState(false);
 
+<<<<<<< HEAD
     return (
         <>
         
@@ -26,5 +27,32 @@ const AppNavbar = () => {
 
         </>
     )
+=======
+  return (
+    <>
+      <nav class="uk-navbar-container" uk-navbar>
+        <div class="uk-navbar-right" id="nav-right">
+          <ul class="uk-navbar-nav" id="nav">
+            <li>
+              <Link to="/">Search Books</Link>
+            </li>
+            <li>
+              <Link to="/have">Have Read</Link>
+            </li>
+            <li>
+              <Link to="/want">Want To Read</Link>
+            </li>
+            <li>
+              <Link to={<Login />}>Login</Link>
+            </li>
+            <li>
+              <Link to={<SignUp />}>SignUp</Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </>
+  );
+>>>>>>> 322615534dff05945018bf8118cdafcc3931e5f6
 };
 export default AppNavbar;
