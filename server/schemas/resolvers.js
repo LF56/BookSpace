@@ -38,20 +38,28 @@ const resolvers = {
 
       return { token, user };
     },
-    addToList: async (parent, { newBook }, context) => {
+    addToList: async (parent, { input }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { readingList: input } },
+          { new: true, runValidators: true }
+        ).populate("readingList");
+
+        return updatedUser;
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
+    removeBook: async (parent, { bookId }, context) => {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
           {
-            $addToSet: {
-              readingList: newBook,
-            },
+            $pull: { readingList: { bookId } },
           },
-          { new: true, runValidators: true }
+          { new: true }
         );
-        console.log("--------");
-        console.log(updatedUser);
-        console.log("--------");
+
         return updatedUser;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -76,18 +84,24 @@ const resolvers = {
 
       throw new AuthenticationError("You must be logged in to leave a review.");
     },
-    removeBook: async (parent, { bookId }, context) => {
+    addComment: async (parent, { reviewId, commentText }, context) => {
       if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: context.user._id },
+        const updatedReview = await Review.findOneAndUpdate(
+          { _id: reviewId },
           {
-            $pull: { readingList: { bookId } },
+            $push: {
+              comments: { commentText, username: context.user.username },
+            },
           },
-          { new: true }
+          { new: true, runValidators: true }
         );
-        return updatedUser;
+
+        return updatedReview;
       }
-      throw new AuthenticationError("You need to be logged in!");
+
+      throw new AuthenticationError(
+        "You need to be logged in to add a comment."
+      );
     },
   },
 };
