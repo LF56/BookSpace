@@ -42,7 +42,17 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { readingList: authors: input.authors, bookId: input.bookId, title: input.title, description: input.description, image: input.image } },
+          {
+            $push: {
+              readingList: {
+                authors: input.authors,
+                bookId: input.bookId,
+                title: input.title,
+                description: input.description,
+                image: input.image,
+              },
+            },
+          },
           { new: true }
         );
         console.log("--------");
