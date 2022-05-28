@@ -30,7 +30,6 @@ export const SAVE_BOOK = gql`
     saveBook(book: $book) {
       username
       email
-      bookCount
       savedBooks{
           authors
           description
@@ -49,8 +48,7 @@ export const REMOVE_BOOK = gql`
     removeBook(bookId: $bookId) {
         username
         email
-        bookCount
-        savedBooks{
+          savedBooks {
             authors
             description
             bookId

@@ -40,6 +40,10 @@ function App() {
         </Routes>
       </>
     </Router>
+    <div uk-sticky="position: bottom" className='footer'>
+      <h3>Thank you for visiting BookSpace!</h3>
+    </div>
+
     </ApolloProvider>
   );
 }

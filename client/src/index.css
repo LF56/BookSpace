@@ -21,6 +21,7 @@ padding: auto;
   text-transform: uppercase;
   transition: .1s ease-in-out;
   transition-property: color,background-color;
+flex: auto;
 }
 #nav-right{
 display: flex;
@@ -47,9 +48,21 @@ h1 {
   padding-right: 40px;
   background-color: #0d0b2184;
 text-align: center;
-
+}
+.footer{
+  background-color:#2a275084;
+  color:aliceblue ;
+  height: 50px;
 }
 
+.uk-h3, h3 {
+  font-size: 1.5rem;
+  line-height: 1.4;
+  color: azure;
+text-align: center;
+
+
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

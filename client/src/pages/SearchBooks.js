@@ -3,7 +3,6 @@ import Auth from '../utils/auth';
 import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 import { searchGoogleBooks } from "../utils/API";
 
-//IMPORT MUTATION FOR SAVE BOOKS
 import { useMutation } from '@apollo/client';
 import { SAVE_BOOK } from '../utils/mutations';
 
@@ -72,13 +71,15 @@ const SearchBooks = () => {
             <div className="uk-container" id='search-book'>
                 <h1 className='uk-align-center'>Find Books</h1>
                 <div class="uk-margin">
-                    <input class="uk-input uk-form-success uk-form-width-medium" type="text" 
+                    <form  onSubmit={handleFormSubmit}>
+                    <input class="uk-input uk-form uk-form-width-medium" type="text" 
                     name='searchInput' 
                     placeholder="Find A Book" 
                     value={searchInput}
                     onChange={(e) => setSearchInput(e.target.value)}
-                    onSubmit={handleFormSubmit} />
-                   <button class="uk-button uk-button-default" type='submit'>Search</button>
+                    />
+                   <button class="uk-button uk-button-default" type='submit' onClick={handleSaveBook}>Search</button>
+                   </form>
                 </div>
             </div>
         
