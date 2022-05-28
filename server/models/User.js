@@ -26,7 +26,6 @@ const userSchema = new Schema(
       },
     ],
     readingList: [bookSchema],
-    completedList: [bookSchema],
   },
   {
     toJSON: {
@@ -49,7 +48,7 @@ userSchema.methods.isCorrectPassword = async function (password) {
 };
 
 userSchema.virtual("bookCount").get(function () {
-  return this.savedBooks.length;
+  return this.readingList.length;
 });
 
 const User = model("User", userSchema);

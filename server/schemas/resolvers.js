@@ -38,20 +38,25 @@ const resolvers = {
 
       return { token, user };
     },
-    addToList: async (parent, { input }, context) => {
+    addToList: async (parent, { newBook }, context) => {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { readingList: input } },
-          { new: true }
+          {
+            $addToSet: {
+              readingList: newBook,
+            },
+          },
+          { new: true, runValidators: true }
         );
+        console.log("--------");
         console.log(updatedUser);
+        console.log("--------");
         return updatedUser;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
     createReview: async (parent, { input }, context) => {
-      console.log(input);
       if (context.user) {
         const review = await Review.create({
           stars: input.stars,
@@ -72,11 +77,12 @@ const resolvers = {
       throw new AuthenticationError("You must be logged in to leave a review.");
     },
     removeBook: async (parent, { bookId }, context) => {
-      console.log(bookId);
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { readingList: { bookId } } },
+          {
+            $pull: { readingList: { bookId } },
+          },
           { new: true }
         );
         return updatedUser;
