@@ -42,16 +42,17 @@ const resolvers = {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $push: { readingList: input } },
+          { $push: { readingList: authors: input.authors, bookId: input.bookId, title: input.title, description: input.description, image: input.image } },
           { new: true }
         );
+        console.log("--------");
         console.log(updatedUser);
+        console.log("--------");
         return updatedUser;
       }
       throw new AuthenticationError("You need to be logged in!");
     },
     createReview: async (parent, { input }, context) => {
-      console.log(input);
       if (context.user) {
         const review = await Review.create({
           stars: input.stars,
@@ -72,16 +73,32 @@ const resolvers = {
       throw new AuthenticationError("You must be logged in to leave a review.");
     },
     removeBook: async (parent, { bookId }, context) => {
-      console.log(bookId);
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
-          { $pull: { readingList: { bookId } } },
+          {
+            $pull: { readingList: { bookId } },
+          },
           { new: true }
         );
         return updatedUser;
       }
       throw new AuthenticationError("You need to be logged in!");
+    },
+    markAsRead: async (parent, { bookId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          {
+            $pull: { readingList: { bookId } },
+            $push: { completedList: { bookId } },
+          },
+          { new: true }
+        );
+
+        return updatedUser;
+      }
+      throw new AuthenticationError("You must be logged in to do that!");
     },
   },
 };
