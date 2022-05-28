@@ -38,22 +38,16 @@ const resolvers = {
 
       return { token, user };
     },
-    addToList: async (parent, { input }, context) => {
+    addToList: async (parent, { newBook }, context) => {
       if (context.user) {
         const updatedUser = await User.findByIdAndUpdate(
           { _id: context.user._id },
           {
-            $push: {
-              readingList: {
-                authors: input.authors,
-                bookId: input.bookId,
-                title: input.title,
-                description: input.description,
-                image: input.image,
-              },
+            $addToSet: {
+              readingList: newBook,
             },
           },
-          { new: true }
+          { new: true, runValidators: true }
         );
         console.log("--------");
         console.log(updatedUser);
@@ -94,21 +88,6 @@ const resolvers = {
         return updatedUser;
       }
       throw new AuthenticationError("You need to be logged in!");
-    },
-    markAsRead: async (parent, { bookId }, context) => {
-      if (context.user) {
-        const updatedUser = await User.findByIdAndUpdate(
-          { _id: context.user._id },
-          {
-            $pull: { readingList: { bookId } },
-            $push: { completedList: { bookId } },
-          },
-          { new: true }
-        );
-
-        return updatedUser;
-      }
-      throw new AuthenticationError("You must be logged in to do that!");
     },
   },
 };
