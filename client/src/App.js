@@ -11,6 +11,7 @@ import AppNavbar from "./components/Navbar";
 import SearchBooks from "./pages/SearchBooks";
 import WantToRead from "./pages/WantToRead";
 
+
 const httpLink = createHttpLink({
   uri: "/graphql",
 });
