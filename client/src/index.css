@@ -19,14 +19,8 @@ body {
   margin: auto;
   padding: auto;
   text-transform: uppercase;
-<<<<<<< HEAD
-  transition: .1s ease-in-out;
-  transition-property: color,background-color;
-flex: auto;
-=======
   transition: 0.1s ease-in-out;
   transition-property: color, background-color;
->>>>>>> 322615534dff05945018bf8118cdafcc3931e5f6
 }
 #nav-right {
   display: flex;

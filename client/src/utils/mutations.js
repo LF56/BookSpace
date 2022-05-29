@@ -25,7 +25,7 @@ export const ADD_USER = gql`
   }
 `;
 //SAVING BOOK FUNCTIONALITY
-export const SAVE_BOOK = gql`
+export const addTolist = gql`
   mutation saveBook($title: String!) {
     saveBook(book: $book) {
       username

@@ -4,15 +4,16 @@ import { saveBookIds, getSavedBookIds } from '../utils/localStorage';
 import { searchGoogleBooks } from "../utils/API";
 
 import { useMutation } from '@apollo/client';
-import { SAVE_BOOK } from '../utils/mutations';
+import { addTolist } from '../utils/mutations';
+import Books from '../components/Books';
 
 const SearchBooks = () => {
     const [searchedBooks, setSearchedBooks] = useState([]);
     const [searchInput, setSearchInput] = useState('');
     const [savedBookIds, setSavedBookIds] = useState(getSavedBookIds());
-    const [saveBook, { error }] = useMutation(SAVE_BOOK);
+    const [saveBook, { error }] = useMutation(addTolist);
 
-//SET SAVED BOOKS TO LOCAL STORAGE
+    //SET SAVED BOOKS TO LOCAL STORAGE
     useEffect(() => {
         return () => saveBookIds(savedBookIds);
     });
@@ -70,19 +71,25 @@ const SearchBooks = () => {
         <>
             <div className="uk-container" id='search-book'>
                 <h1 className='uk-align-center'>Find Books</h1>
-                <div class="uk-margin">
-                    <form  onSubmit={handleFormSubmit}>
-                    <input class="uk-input uk-form uk-form-width-medium" type="text" 
-                    name='searchInput' 
-                    placeholder="Find A Book" 
-                    value={searchInput}
-                    onChange={(e) => setSearchInput(e.target.value)}
-                    />
-                   <button class="uk-button uk-button-default" type='submit' onClick={handleSaveBook}>Search</button>
-                   </form>
+                <div className="uk-margin">
+                    <form onSubmit={handleFormSubmit}>
+                        <input className="uk-input uk-form uk-form-width-medium" type="text"
+                            name='searchInput'
+                            placeholder="Find A Book"
+                            value={searchInput}
+                            onChange={(e) => setSearchInput(e.target.value)}
+                        />
+                        <button className="uk-button uk-button-default" type='submit' onClick={handleSaveBook}>Search</button>
+                    </form>
                 </div>
             </div>
-        
+            <div className="uk-grid-default uk-child-width-expand@s uk-text-center" uk-grid>
+                {searchedBooks.map((book) => <Books key={book.title} title={book.title} author={book.author} description={book.description} image={book.image}
+                />
+                
+                )}
+
+            </div>
 
         </>
     );
