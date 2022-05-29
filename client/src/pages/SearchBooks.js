@@ -84,7 +84,7 @@ const SearchBooks = () => {
                 </div>
             </div>
             <div className="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid="true">
-                {searchedBooks.map((book) => <Books key={book.title} title={book.title} author={book.author} description={book.description} image={book.image}
+                {searchedBooks.map((book) => <Books key={book.title} title={book.title} authors={book.authors} description={book.description} image={book.image}
                 />
                 
                 )}
