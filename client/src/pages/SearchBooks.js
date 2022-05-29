@@ -83,7 +83,7 @@ const SearchBooks = () => {
                     </form>
                 </div>
             </div>
-            <div className="uk-grid-default uk-child-width-expand@s uk-text-center" uk-grid>
+            <div className="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid="true">
                 {searchedBooks.map((book) => <Books key={book.title} title={book.title} author={book.author} description={book.description} image={book.image}
                 />
                 
