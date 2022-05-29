@@ -4,16 +4,16 @@ function Books(props) {
 
     return (
                 
-                    <div className="uk-card-small uk-height-max-meduim" >
+                    <div className="uk-card-small uk-height-max-meduim">
                         <div className="uk-card-media-top">
-                            <img src={props.image} width="auto" height="auto" className="uk-object-position-center-center" alt="" />
+                            <img src={props.image} width="auto" height="auto" className="uk-object-position-center" alt="" />
                         </div>
-                        <div className="uk-card-body">
-                            <h3 className="uk-card-title">{props.title}</h3>
-                            <p>{props.authors}</p>
-                            <p>{props.description}</p>
+                        <div className="uk-card-body" id="book-card" >
+                            <h3 className="uk-card-title" id="book-title">{props.title}</h3>
+                            <p className="book-authors">{props.authors}</p>
+                            <p className="uk-panel-scrollable" id="book-description">{props.description}</p>
                             <p>{props.stars}</p>
-                            <button class="uk-button uk-button-default">Button</button>
+                            <button class="uk-button" id="book-button">I Want to read this!</button>
                         </div>
                     </div>
     );

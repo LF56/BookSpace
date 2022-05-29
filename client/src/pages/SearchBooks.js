@@ -79,12 +79,12 @@ const SearchBooks = () => {
                             value={searchInput}
                             onChange={(e) => setSearchInput(e.target.value)}
                         />
-                        <button className="uk-button uk-button-default" type='submit' onClick={handleSaveBook}>Search</button>
+                        <button className="uk-button uk-button-default" id="search-btn" type='submit' onClick={handleSaveBook}>Search</button>
                     </form>
                 </div>
             </div>
             <div className="uk-child-width-1-3@m uk-grid-small uk-grid-match" uk-grid="true">
-                {searchedBooks.map((book) => <Books key={book.title} title={book.title} author={book.author} description={book.description} image={book.image}
+                {searchedBooks.map((book) => <Books key={book.title} title={book.title} authors={book.authors} description={book.description} image={book.image}
                 />
                 
                 )}

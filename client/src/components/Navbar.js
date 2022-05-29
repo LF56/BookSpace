@@ -20,9 +20,6 @@ const AppNavbar = () => {
             <li>
               <Link to="/login">Login</Link>
             </li>
-            <li>
-              <Link to={<SignUp />}>SignUp</Link>
-            </li>
           </ul>
         </div>
       </nav>

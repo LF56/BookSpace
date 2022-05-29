@@ -42,13 +42,101 @@ h1 {
 }
 
 #search-book {
-  padding-left: 40px;
-  padding-right: 40px;
+ padding: auto;
   background-color: #0d0b2184;
   text-align: center;
 }
 
+.uk-card-default {
+  background-color: rgba(8, 6, 79, 0.552);
+  border-radius: 50px;
+  color: #666;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 8%);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.uk-button {
+  background-color:rgb(248, 248, 255);
+  color:black;
+ margin-top: 25px;
+  margin: 0;
+  border: none;
+  overflow: visible;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  padding: 0 30px;
+  vertical-align: middle;
+  font-size: .875rem;
+  line-height: 38px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: .1s ease-in-out;
+  transition-property: color,background-color,border-color;
+}
+.uk-button:hover{
+  color: #e5e5e5;
+  background-color:darkblue;
+}
+.uk-link, a {
+  color: #e5e5e5;
+  cursor: pointer;
+ text-decoration: none; 
+}
+.uk-link, a:hover {
+  color: #e5e5e5;
+  cursor: pointer;
+  /* background-color: rgb(3, 3, 82); */
+  
+}
+canvas, img, svg, video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+#book-card{
+  background-color: rgba(0, 0, 139, 0.314);
+}
+#book-title , #book-description, .book-authors{
+  color: #e5e5e5;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+font-family: 'Dosis', sans-serif;
+font-size: large;
+}
+#book-button{
+  margin-left: auto;
+  text-align: center;
+}
+
+label {
+  cursor: default;
+  color: #e5e5e5;
+  font-size:x-large;
+}
+.uk-h2, h2 {
+  font-size: 1.7rem;
+  line-height: 1.3;
+  color: #e5e5e5;
+  font-size: xx-large;
+}
+#login{
+    color: #ffffff;
+    cursor: pointer;
+    font-size: medium;
+}
+
+/* .uk-button-default:hover {
+  background-color:rgba(32, 9, 96, 0.64);
+  color: #e5e5e5;
+} */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: 'Dosis', sans-serif;
+ 
 }
