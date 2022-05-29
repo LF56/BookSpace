@@ -13,7 +13,7 @@ function Books(props) {
                             <p className="book-authors">{props.authors}</p>
                             <p className="uk-panel-scrollable" id="book-description">{props.description}</p>
                             <p>{props.stars}</p>
-                            <button class="uk-button uk-button-default">Button</button>
+                            <button class="uk-button" id="book-button">I Want to read this!</button>
                         </div>
                     </div>
     );

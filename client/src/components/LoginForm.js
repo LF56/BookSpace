@@ -46,10 +46,10 @@ function Login(props) {
             />
           </div>
           <div className="uk-form-width-default">
-            <label htmlFor="pwd">Password:</label>
-            <input
+            <label htmlFor="pwd" >Password:</label>
+            <input 
             className='uk-input uk-form-width-default uk-border-rounded'
-              placeholder="******"
+               placeholder="******"
               name="password"
               type="password"
               id="pwd"

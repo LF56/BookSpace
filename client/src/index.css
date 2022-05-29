@@ -42,11 +42,11 @@ h1 {
 }
 
 #search-book {
-  padding-left: 40px;
-  padding-right: 40px;
+ padding: auto;
   background-color: #0d0b2184;
   text-align: center;
 }
+
 .uk-card-default {
   background-color: rgba(8, 6, 79, 0.552);
   border-radius: 50px;
@@ -68,7 +68,6 @@ h1 {
   text-transform: none;
   -webkit-appearance: none;
   border-radius: 0;
-  display: inline-block;
   box-sizing: border-box;
   padding: 0 30px;
   vertical-align: middle;
@@ -82,6 +81,7 @@ h1 {
 }
 .uk-button:hover{
   color: #e5e5e5;
+  background-color:darkblue;
 }
 .uk-link, a {
   color: #e5e5e5;
@@ -106,6 +106,13 @@ canvas, img, svg, video {
 #book-title , #book-description, .book-authors{
   color: #e5e5e5;
   text-align: center;
+  font-family: 'DM Sans', sans-serif;
+font-family: 'Dosis', sans-serif;
+font-size: large;
+}
+#book-button{
+  margin-left: auto;
+  text-align: center;
 }
 
 label {
@@ -124,11 +131,12 @@ label {
     cursor: pointer;
     font-size: medium;
 }
+
 /* .uk-button-default:hover {
   background-color:rgba(32, 9, 96, 0.64);
   color: #e5e5e5;
 } */
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  font-family: 'Dosis', sans-serif;
+ 
 }

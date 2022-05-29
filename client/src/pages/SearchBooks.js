@@ -79,7 +79,7 @@ const SearchBooks = () => {
                             value={searchInput}
                             onChange={(e) => setSearchInput(e.target.value)}
                         />
-                        <button className="uk-button uk-button-default" type='submit' onClick={handleSaveBook}>Search</button>
+                        <button className="uk-button uk-button-default" id="search-btn" type='submit' onClick={handleSaveBook}>Search</button>
                     </form>
                 </div>
             </div>
