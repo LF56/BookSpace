@@ -38,9 +38,10 @@ const SearchBooks = () => {
         authors: book.volumeInfo.authors || ["No author to display"],
         title: book.volumeInfo.title,
         description: book.volumeInfo.description,
+        link: book.selfLink,
         image: book.volumeInfo.imageLinks?.thumbnail || "",
       }));
-
+      // console.log(items);
       setSearchedBooks(bookData);
       setSearchInput("");
     } catch (err) {
@@ -88,7 +89,8 @@ const SearchBooks = () => {
             <button
               className="uk-button uk-button-default"
               id="search-btn"
-              type="submit">
+              type="submit"
+            >
               Search
             </button>
           </form>
@@ -96,7 +98,8 @@ const SearchBooks = () => {
       </div>
       <div
         className="uk-child-width-1-3@m uk-grid-small uk-grid-match"
-        uk-grid="true">
+        uk-grid="true"
+      >
         {searchedBooks.map((book, i) => (
           <Books
             key={i}
