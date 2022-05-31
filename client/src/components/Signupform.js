@@ -14,8 +14,9 @@ function Signup(props) {
         variables: {
           email: formState.email,
           password: formState.password,
-          firstName: formState.firstName,
-          lastName: formState.lastName,
+          username: formState.username
+          // firstName: formState.firstName,
+          // lastName: formState.lastName,
         },
       });
       const token = mutationResponse.data.addUser.token;
@@ -36,7 +37,7 @@ function Signup(props) {
   
         <h2>SIGN UP</h2>
         <form onSubmit={handleFormSubmit}>
-          <div className="uk-form-width-default">
+          {/* <div className="uk-form-width-default">
             <label htmlFor="firstName">First Name:</label>
             <input
                className='uk-input uk-form-width-default uk-border-rounded'
@@ -57,7 +58,18 @@ function Signup(props) {
               id="lastName"
               onChange={handleChange}
             />
-          </div>
+          </div> */}
+            <div className="uk-form-width-default">
+            <label htmlFor="username">Username:</label>
+            <input
+               className='uk-input uk-form-width-default uk-border-rounded'
+              placeholder="Username"
+              name="username"
+              type="username"
+              id="username"
+              onChange={handleChange}
+            />
+          </div> 
           <div className="uk-form-width-default">
             <label htmlFor="email">Email:</label>
             <input

@@ -28,6 +28,7 @@ const typeDefs = gql`
     description: String
     title: String
     image: String
+    link: String
   }
 
   input BookInput {
@@ -36,6 +37,7 @@ const typeDefs = gql`
     description: String
     title: String
     image: String
+    link: String
   }
 
   type Review {
