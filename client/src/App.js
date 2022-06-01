@@ -43,6 +43,7 @@ function App() {
             <Route path="/want" element={<WantToRead />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/book" element={<SingleBook />} />
             <Route render={() => <h1 className="display-2">Wrong page!</h1>} />
           </Routes>
         </>

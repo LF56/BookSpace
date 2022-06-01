@@ -1,21 +1,7 @@
-// import React from 'react';
+import React from "react";
 
-// const WantTo = () => {
-
-//     return (
-//         <>
-//         <div>
-//            <h1>GoodBye</h1>
-//         </div>
-//         </>
-//     );
-// };
-// export default WantTo;
-
-import React from 'react';
-
-import Auth from '../utils/auth';
-import { removeBookId } from '../utils/localStorage';
+import Auth from "../utils/auth";
+import { removeBookId } from "../utils/localStorage";
 
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_ME } from "../utils/queries";
@@ -25,7 +11,7 @@ const WantTo = () => {
   const { loading, data } = useQuery(GET_ME);
   const [removeBook, { error }] = useMutation(REMOVE_BOOK);
   const userData = data?.me || [];
-//   const userDataLength = Object.keys(userData).length;
+  //   const userDataLength = Object.keys(userData).length;
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleRemoveBook = async (bookId) => {
@@ -53,7 +39,7 @@ const WantTo = () => {
 
   return (
     <>
-      <div fluid className='text-light bg-dark'>
+      <div fluid className="text-light bg-dark">
         <div>
           <h1>Viewing saved books!</h1>
         </div>
@@ -61,21 +47,29 @@ const WantTo = () => {
       <div>
         <h2>
           {userData.readingList?.length
-            ? `Viewing ${userData.readingList.length} saved ${userData.readingList.length === 1 ? 'book' : 'books'}:`
-            : 'You have no saved books!'}
+            ? `Viewing ${userData.readingList.length} saved ${
+                userData.readingList.length === 1 ? "book" : "books"
+              }:`
+            : "You have no saved books!"}
         </h2>
         <div>
           {userData.readingList?.map((book) => {
             return (
-              <div key={book.bookId} border='dark'>
+              <div key={book.bookId} border="dark">
                 {book.image ? (
-                   <img src={book.image} alt={`The cover for ${book.title}`} variant='top' /> 
-                   ): null}
+                  <img
+                    src={book.image}
+                    alt={`The cover for ${book.title}`}
+                    variant="top"
+                  />
+                ) : null}
                 <div>
                   <h2>{book.title}</h2>
-                  <p className='small'>Authors: {book.authors}</p>
+                  <p className="small">Authors: {book.authors}</p>
                   <p>{book.description}</p>
-                  <button className='btn-block btn-danger' onClick={() => handleRemoveBook(book.bookId)}>
+                  <button
+                    className="btn-block btn-danger"
+                    onClick={() => handleRemoveBook(book.bookId)}>
                     Remove this Book!
                   </button>
                 </div>

@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import Auth from "../utils/auth";
 import { saveBookIds, getSavedBookIds } from "../utils/localStorage";
 import { searchGoogleBooks } from "../utils/API";
-
+import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { SAVE_BOOK } from "../utils/mutations";
 import Books from "../components/Books";
+import SingleBook from "./SingleBook";
 
 const SearchBooks = () => {
   const [searchedBooks, setSearchedBooks] = useState([]);
@@ -89,8 +90,7 @@ const SearchBooks = () => {
             <button
               className="uk-button uk-button-default"
               id="search-btn"
-              type="submit"
-            >
+              type="submit">
               Search
             </button>
           </form>
@@ -98,18 +98,31 @@ const SearchBooks = () => {
       </div>
       <div
         className="uk-child-width-1-3@m uk-grid-small uk-grid-match"
-        uk-grid="true"
-      >
+        uk-grid="true">
         {searchedBooks.map((book, i) => (
-          <Books
-            key={i}
-            bookId={book.bookId}
-            title={book.title}
-            authors={book.authors}
-            description={book.description}
-            image={book.image}
-            onClick={handleSaveBook}
-          />
+          <Link
+            to="/"
+            component={
+              <SingleBook
+                key={i}
+                bookId={book.bookId}
+                title={book.title}
+                authors={book.authors}
+                description={book.description}
+                image={book.image}
+                onClick={handleSaveBook}
+              />
+            }>
+            <Books
+              key={i}
+              bookId={book.bookId}
+              title={book.title}
+              authors={book.authors}
+              description={book.description}
+              image={book.image}
+              onClick={handleSaveBook}
+            />
+          </Link>
         ))}
       </div>
     </>
