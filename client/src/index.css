@@ -1,13 +1,171 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root {
+  background-image: url("image/galaxy.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.uk-link, a {
+  color: #e5e5e5;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: xx-large;
+padding: 0 10px 0 20px;
+text-decoration: none;
+text-transform:uppercase;
+font-family: 'Dosis', sans-serif;
+
+}
+.uk-link, a:hover{
+  background-color:rgba(0, 0, 139, 0.393);
+  text-decoration: none;
+  font-family: 'Dosis', sans-serif;
+}
+#nav-right {
+  display: flex;
+  justify-content: end;
+}
+.uk-navbar-container:not(.uk-navbar-transparent) {
+  background: none;
+}
+
+h1 {
+  font-size: 2.23125rem;
+  line-height: 1.2;
+  color: #e5e5e5;
+  text-align: center;
+  font-family: 'Dosis', sans-serif;
+
+}
+
+#search-book {
+ padding: auto;
+  background-color: #0d0b2184;
+  text-align: center;
+}
+#login {
+  color: #ffffff;
+  cursor: pointer;
+  font-size: x-large;
+}
+
+.uk-card-default {
+  background-color: rgba(8, 6, 79, 0.552);
+  border-radius: 50px;
+  color: #666;
+  box-shadow: 0 5px 15px rgb(0 0 0 / 8%);
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.uk-button {
+background-color: #e5e5e5;  
+color:black;
+  margin-top: 5px;
+  margin-left: 12px;
+  margin-right: 17px;
+  margin-bottom: 5px;
+  border: none;
+  display: inline-block;
+  border-radius: 0;
+  box-sizing: border-box;
+  padding: 0 30px;
+  vertical-align: middle;
+  font-size: .875rem;
+  line-height: 38px;
+  text-align: center;
+  text-decoration: none;
+
+}
+.uk-button:hover{
+  color: #e5e5e5;
+  background-color:rgba(0, 0, 139, 0.393);
+}
+.uk-link, a {
+  color: #e5e5e5;
+  cursor: pointer;
+ text-decoration: none; 
+}
+.uk-link, a:hover {
+  color: #e5e5e5;
+  cursor: pointer;
+  /* background-color: rgb(3, 3, 82); */
+}
+canvas, img, svg, video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+#book-card{
+  background-color: rgba(0, 0, 139, 0.314);
+}
+#book-title , #book-description, .book-authors{
+  color: #e5e5e5;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+font-family: 'Dosis', sans-serif;
+font-size: large;
+}
+#book-button{
+  margin-left: auto;
+  text-align: center;
+}
+
+label {
+  cursor: default;
+  color: #e5e5e5;
+  font-size:x-large;
+}
+.uk-h2, h2 {
+  font-size: 1.7rem;
+  line-height: 1.3;
+  color: #e5e5e5;
+  font-size: xx-large;
+}
+#login{
+    color: #ffffff;
+    cursor: pointer;
+    font-size: medium;
+}
+.uk-container {
+  display: flow-root;
+  box-sizing: content-box;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+justify-self: auto;
+}
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  color: #e5e5e5;
+}
+#want-to-read{
+  background-color: rgba(0, 0, 139, 0.314);
+  text-align: center;
+}
+.uk-grid-column-small, .uk-grid-small {
+  margin-left: -15px;
+  text-align: center;
+}
+.uk-card-title, p{
+  line-height: 1.4;
+  text-align: center;
+}
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Dosis', sans-serif;
+ 
 }

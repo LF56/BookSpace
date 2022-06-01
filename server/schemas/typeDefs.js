@@ -5,26 +5,24 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    thoughts(_id: ID, username: String, bookId: String): [Thought]
-    thought(_id: ID!): Thought
+    reviews: [Review]
+    review(_id: ID!): Review
   }
-  input BookInput {
-    authors: [String]
-    description: String!
-    bookId: String!
-    image: String
-    link: String
-    title: String!
-  }
+
   type User {
-    _id: ID
-    username: String
-    email: String
-    bookCount: Int
-    savedBooks: [Book]
-  }
-  type Book {
     _id: ID!
+    username: String!
+    email: String!
+    readingList: [Book]
+  }
+
+  type Auth {
+    token: ID!
+    user: User
+  }
+
+  type Book {
+    _id: ID
     bookId: String
     authors: [String]
     description: String
@@ -32,34 +30,38 @@ const typeDefs = gql`
     image: String
     link: String
   }
-  type Auth {
-    token: ID!
-    user: User
+
+  input BookInput {
+    bookId: String
+    authors: [String]
+    description: String
+    title: String
+    image: String
+    link: String
   }
 
-  type Thought {
-    _id: ID
-    thoughtText: String
-    createdAt: String
+  type Review {
+    _id: ID!
+    stars: String
     username: String
-    reactionCount: Int
-    reactions: [Reaction]
+    bookId: String
+    reviewText: String
   }
 
-  type Reaction {
-    _id: ID
-    reactionBody: String
-    createdAt: String
+  input ReviewInput {
+    stars: String
     username: String
+    bookId: String
+    reviewText: String
   }
 
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
-    saveBook(bookData: BookInput!): User
-    removeBook(bookId: ID!): User
-    addThought(thoughtText: String!, reviewedBook: BookInput!): Thought
-    addReaction(thoughtId: ID!, reactionBody: String!): Thought
+    addToList(input: BookInput!): User
+    createReview(input: ReviewInput!): Review
+    removeBook(bookId: ID!): Book
+    addComment(reviewId: ID!, commentText: String!): Review
   }
 `;
 

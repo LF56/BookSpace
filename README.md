@@ -20,17 +20,13 @@ SO THAT I can connect with new and previous readers to discuss the book<p align=
 # Description
 
 
-
-
 # Install
 
 
 # Usage
 
 
-
 # Images
-
 
 
 # Deployed-Site
@@ -42,4 +38,3 @@ SO THAT I can connect with new and previous readers to discuss the book<p align=
 [Heather Tamisiea](https://github.com/hdtamisiea)<br>
 [Leah Fox](https://github.com/LF56)<br>
 [Logan Palmer](https://github.com/hdtamisiea)<br>
-

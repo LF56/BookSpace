@@ -7,16 +7,22 @@ const { authMiddleware } = require("./utils/auth");
 const db = require("./config/connection");
 
 const PORT = process.env.PORT || 3001;
+const app = express();
 const server = new ApolloServer({
   typeDefs,
   resolvers,
   context: authMiddleware,
 });
 
-const app = express();
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+async function start(){
+  await server.start()
+server.applyMiddleware({app})
+
+}
+start();
 
 // if we're in production, serve client/build as static assets
 // if (process.env.NODE_ENV === "production") {
@@ -28,9 +34,6 @@ app.use(express.json());
 // });
 
 // Create a new instance of an Apollo server with the GraphQL schema
-const startApolloServer = async (typeDefs, resolvers) => {
-  await server.start();
-  server.applyMiddleware({ app });
 
   db.once("open", () => {
     app.listen(PORT, () => {
@@ -40,7 +43,3 @@ const startApolloServer = async (typeDefs, resolvers) => {
       );
     });
   });
-};
-
-  // Call the async function to start the server
-  startApolloServer(typeDefs, resolvers);
