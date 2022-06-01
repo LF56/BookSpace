@@ -1,17 +1,3 @@
-// import React from 'react';
-
-// const WantTo = () => {
-
-//     return (
-//         <>
-//         <div>
-//            <h1>GoodBye</h1>
-//         </div>
-//         </>
-//     );
-// };
-// export default WantTo;
-
 import React from 'react';
 
 import Auth from '../utils/auth';
@@ -55,7 +41,7 @@ const WantTo = () => {
     <>
       <div fluid className='text-light bg-dark'>
         <div>
-          <h1>Viewing saved books!</h1>
+          <h1>Books I Want To Read</h1>
         </div>
       </div>
       <div>
