@@ -33,34 +33,12 @@ function Signup(props) {
 
   return (
     <div className="uk-card uk-card-default uk-card-body uk-width-1-2@m">
-      <Link to="/login" id="login">
+      <Link to="/login" >
         Already A User? Click here to login!
       </Link>
 
       <h2>SIGN UP</h2>
       <form onSubmit={handleFormSubmit}>
-        {/* <div className="uk-form-width-default">
-            <label htmlFor="firstName">First Name:</label>
-            <input
-               className='uk-input uk-form-width-default uk-border-rounded'
-              placeholder="First"
-              name="firstName"
-              type="firstName"
-              id="firstName"
-              onChange={handleChange}
-            />
-          </div>
-          <div className="uk-form-width-default">
-            <label htmlFor="lastName">Last Name:</label>
-            <input
-               className='uk-input uk-form-width-default uk-border-rounded'
-              placeholder="Last"
-              name="lastName"
-              type="lastName"
-              id="lastName"
-              onChange={handleChange}
-            />
-          </div> */}
         <div className="uk-form-width-default">
           <label htmlFor="username">Username:</label>
           <input

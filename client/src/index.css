@@ -13,14 +13,22 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
-.uk-navbar-nav > li > a {
-  color: aliceblue;
+
+.uk-link, a {
+  color: #e5e5e5;
+  text-decoration: none;
+  cursor: pointer;
   font-size: xx-large;
-  margin: auto;
-  padding: auto;
-  text-transform: uppercase;
-  transition: 0.1s ease-in-out;
-  transition-property: color, background-color;
+padding: 0 10px 0 20px;
+text-decoration: none;
+text-transform:uppercase;
+font-family: 'Dosis', sans-serif;
+
+}
+.uk-link, a:hover{
+  background-color:rgba(0, 0, 139, 0.393);
+  text-decoration: none;
+  font-family: 'Dosis', sans-serif;
 }
 #nav-right {
   display: flex;
@@ -29,22 +37,25 @@ body {
 .uk-navbar-container:not(.uk-navbar-transparent) {
   background: none;
 }
-.uk-button-default {
-  background-color: transparent;
-  color: aliceblue;
-  border: 1px solid #e5e5e5;
-}
+
 h1 {
   font-size: 2.23125rem;
   line-height: 1.2;
   color: #e5e5e5;
   text-align: center;
+  font-family: 'Dosis', sans-serif;
+
 }
 
 #search-book {
  padding: auto;
   background-color: #0d0b2184;
   text-align: center;
+}
+#login {
+  color: #ffffff;
+  cursor: pointer;
+  font-size: x-large;
 }
 
 .uk-card-default {
@@ -57,16 +68,14 @@ h1 {
   margin-right: auto;
 }
 .uk-button {
-  background-color:rgb(248, 248, 255);
-  color:black;
- margin-top: 25px;
-  margin: 0;
+background-color: #e5e5e5;  
+color:black;
+  margin-top: 5px;
+  margin-left: 12px;
+  margin-right: 17px;
+  margin-bottom: 5px;
   border: none;
-  overflow: visible;
-  font: inherit;
-  color: inherit;
-  text-transform: none;
-  -webkit-appearance: none;
+  display: inline-block;
   border-radius: 0;
   box-sizing: border-box;
   padding: 0 30px;
@@ -75,13 +84,11 @@ h1 {
   line-height: 38px;
   text-align: center;
   text-decoration: none;
-  text-transform: uppercase;
-  transition: .1s ease-in-out;
-  transition-property: color,background-color,border-color;
+
 }
 .uk-button:hover{
   color: #e5e5e5;
-  background-color:darkblue;
+  background-color:rgba(0, 0, 139, 0.393);
 }
 .uk-link, a {
   color: #e5e5e5;
@@ -92,7 +99,6 @@ h1 {
   color: #e5e5e5;
   cursor: pointer;
   /* background-color: rgb(3, 3, 82); */
-  
 }
 canvas, img, svg, video {
   display: block;
