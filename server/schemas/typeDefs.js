@@ -5,8 +5,7 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    reviews: [Review]
-    review(_id: ID!): Review
+    reviews(bookId: String): [Review]
   }
 
   type User {
@@ -46,6 +45,8 @@ const typeDefs = gql`
     username: String
     bookId: String
     reviewText: String
+    createdAt: String
+    comments: [Comment]
   }
 
   input ReviewInput {
@@ -53,6 +54,13 @@ const typeDefs = gql`
     username: String
     bookId: String
     reviewText: String
+  }
+
+  type Comment {
+    _id: ID!
+    username: String
+    createdAt: String
+    commentText: String
   }
 
   type Mutation {
