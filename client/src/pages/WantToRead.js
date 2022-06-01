@@ -1,11 +1,19 @@
+<<<<<<< HEAD
 import React from "react";
 
 import Auth from "../utils/auth";
 import { removeBookId } from "../utils/localStorage";
+=======
+import React from 'react';
+
+import Auth from '../utils/auth';
+import { removeBookId } from '../utils/localStorage';
+>>>>>>> e00ccc5eeb432ff8bcb5e325b82f0d7fde76cb36
 
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_ME } from "../utils/queries";
 import { REMOVE_BOOK } from "../utils/mutations";
+import { Link } from "react-router-dom";
 
 const WantTo = () => {
   const { loading, data } = useQuery(GET_ME);
@@ -39,37 +47,31 @@ const WantTo = () => {
 
   return (
     <>
-      <div fluid className="text-light bg-dark">
+      <Link to="/">←Back To Search</Link>
+      <div>
         <div>
-          <h1>Viewing saved books!</h1>
+          <h1>Books I Want To Read</h1>
         </div>
       </div>
-      <div>
+      <div className="uk-container">
         <h2>
           {userData.readingList?.length
-            ? `Viewing ${userData.readingList.length} saved ${
-                userData.readingList.length === 1 ? "book" : "books"
-              }:`
-            : "You have no saved books!"}
+            ? `Viewing ${userData.readingList.length} saved ${userData.readingList.length === 1 ? 'book' : 'books'}:`
+            : ''}
         </h2>
-        <div>
+        <div  className="uk-child-width-1-3@m uk-grid-small uk-grid-match "
+        uk-grid="true">
           {userData.readingList?.map((book) => {
             return (
               <div key={book.bookId} border="dark">
                 {book.image ? (
-                  <img
-                    src={book.image}
-                    alt={`The cover for ${book.title}`}
-                    variant="top"
-                  />
-                ) : null}
-                <div>
-                  <h2>{book.title}</h2>
-                  <p className="small">Authors: {book.authors}</p>
-                  <p>{book.description}</p>
-                  <button
-                    className="btn-block btn-danger"
-                    onClick={() => handleRemoveBook(book.bookId)}>
+                   <img src={book.image} width="auto" height="auto" alt={`The cover for ${book.title}`} variant='top' /> 
+                   ): null}
+                <div className='uk-card' id="want-to-read">
+                  <h2 className='uk-card-title'>{book.title}</h2>
+                  <p className='small'>Author: {book.authors}</p>
+                  <p className='uk-panel-scrollable'>{book.description}</p>
+                  <button className='uk-button'  onClick={() => handleRemoveBook(book.bookId)}>
                     Remove this Book!
                   </button>
                 </div>

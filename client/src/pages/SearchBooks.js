@@ -108,7 +108,7 @@ const SearchBooks = () => {
             description={book.description}
             image={book.image}
             onClick={handleSaveBook}
-          />
+            disabled={true}/>
         ))}
       </div>
     </>
