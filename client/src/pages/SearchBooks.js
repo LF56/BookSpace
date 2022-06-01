@@ -100,29 +100,15 @@ const SearchBooks = () => {
         className="uk-child-width-1-3@m uk-grid-small uk-grid-match"
         uk-grid="true">
         {searchedBooks.map((book, i) => (
-          <Link
-            to="/"
-            component={
-              <SingleBook
-                key={i}
-                bookId={book.bookId}
-                title={book.title}
-                authors={book.authors}
-                description={book.description}
-                image={book.image}
-                onClick={handleSaveBook}
-              />
-            }>
-            <Books
-              key={i}
-              bookId={book.bookId}
-              title={book.title}
-              authors={book.authors}
-              description={book.description}
-              image={book.image}
-              onClick={handleSaveBook}
-            />
-          </Link>
+          <Books
+            key={i}
+            bookId={book.bookId}
+            title={book.title}
+            authors={book.authors}
+            description={book.description}
+            image={book.image}
+            onClick={handleSaveBook}
+          />
         ))}
       </div>
     </>
