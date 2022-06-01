@@ -62,9 +62,13 @@ const SearchBooks = () => {
     }
 
     try {
-      await saveBook({
+      const { data } = await saveBook({
         variables: { input: { ...bookToSave } },
       });
+
+      if (!data.saveBook) {
+        throw new Error("Something went wrong");
+      }
 
       setSavedBookIds([...savedBookIds, bookToSave.bookId]);
     } catch (err) {
@@ -108,8 +112,10 @@ const SearchBooks = () => {
             authors={book.authors}
             description={book.description}
             image={book.image}
+            link={book.selfLink}
             onClick={handleSaveBook}
-            disabled={true}/>
+            disabled={true}
+          />
         ))}
       </div>
     </>

@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 
 const WantTo = () => {
   const { loading, data } = useQuery(GET_ME);
-  const [removeBook, { error }] = useMutation(REMOVE_BOOK);
+  const [removeBook] = useMutation(REMOVE_BOOK);
   const userData = data?.me || [];
 //   const userDataLength = Object.keys(userData).length;
 
@@ -50,7 +50,7 @@ const WantTo = () => {
         <h2>
           {userData.readingList?.length
             ? `Viewing ${userData.readingList.length} saved ${userData.readingList.length === 1 ? 'book' : 'books'}:`
-            : ''}
+            : 'You have no saved books yet.'}
         </h2>
         <div  className="uk-child-width-1-3@m uk-grid-small uk-grid-match "
         uk-grid="true">

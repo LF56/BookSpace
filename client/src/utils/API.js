@@ -39,7 +39,7 @@ export const saveBook = (bookData, token) => {
 };
 
 //REMOVE SAVE BOOK DATA
-export const deleteBook = (bookId, token) => {
+export const removeBook = (bookId, token) => {
     return fetch(`/api/users/books/${bookId}`, {
         method: 'DELETE',
         headers: {
