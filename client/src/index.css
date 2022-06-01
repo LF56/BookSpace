@@ -137,11 +137,34 @@ label {
     cursor: pointer;
     font-size: medium;
 }
-
-/* .uk-button-default:hover {
-  background-color:rgba(32, 9, 96, 0.64);
+.uk-container {
+  display: flow-root;
+  box-sizing: content-box;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+justify-self: auto;
+}
+p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
   color: #e5e5e5;
-} */
+}
+#want-to-read{
+  background-color: rgba(0, 0, 139, 0.314);
+  text-align: center;
+}
+.uk-grid-column-small, .uk-grid-small {
+  margin-left: -15px;
+  text-align: center;
+}
+.uk-card-title, p{
+  line-height: 1.4;
+  text-align: center;
+}
 code {
   font-family: 'Dosis', sans-serif;
  
