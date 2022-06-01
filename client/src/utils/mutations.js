@@ -59,25 +59,27 @@ export const REMOVE_BOOK = gql`
 `;
 
 //CREATE REVIEW FUNCTIONALITY
-// export const CREATE_REVIEW = gql`
-//   mutation createReview($input: ReviewInput!) {
-//     createReview(input: $input) {
-//       stars
-//       username
-//       bookId
-//       reviewText
-//     }
-//   }
-// `;
+export const CREATE_REVIEW = gql`
+  mutation createReview($input: ReviewInput!) {
+    createReview(input: $input) {
+      _id
+      stars
+      username
+      bookId
+      reviewText
+    }
+  }
+`;
 
 //CREATE COMMENT FUNCTIONALITY
-// export const ADD_COMMENT = gql`
-//   mutation createReview($input: ReviewInput!) {
-//     createReview(input: $input) {
-//       stars
-//       username
-//       bookId
-//       reviewText
-//     }
-//   }
-// `;
+export const ADD_COMMENT = gql`
+  mutation addComment($reviewId: ID!, $commentText: String!) {
+    addComment(reviewId: $reviewId, commentText: $commentText) {
+      _id
+      stars
+      username
+      bookId
+      reviewText
+    }
+  }
+`;
