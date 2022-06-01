@@ -18,12 +18,14 @@ export const GET_ME = gql`
 `;
 
 export const QUERY_REVIEWS = gql`
-  {
-    reviews {
+  query reviews($bookId: String) {
+    reviews(bookId: $bookId) {
+      _id
       username
       createdAt
       reviewText
       comments {
+        _id
         username
         createdAt
         commentText
