@@ -12,6 +12,7 @@ import SearchBooks from "./pages/SearchBooks";
 import WantToRead from "./pages/WantToRead";
 import Login from "./components/LoginForm";
 import Signup from "./components/Signupform";
+import SingleBook from "./pages/SingleBook";
 
 const httpLink = createHttpLink({
   uri: "graphql",

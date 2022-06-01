@@ -9,10 +9,14 @@ const resolvers = {
         const userData = await User.findOne({ _id: context.user._id }).select(
           "-__v -password"
         );
-        console.log(userData)
+        console.log(userData);
         return userData;
       }
       throw new AuthenticationError("You need to be logged in!");
+    },
+    reviews: async (parent, { bookId }) => {
+      const params = bookId ? { bookId } : {};
+      return Review.find(params).sort({ createdAt: -1 });
     },
   },
 

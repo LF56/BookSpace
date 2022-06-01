@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { SAVE_BOOK } from "../utils/mutations";
 import Books from "../components/Books";
-import SingleBook from "./SingleBook";
 
 const SearchBooks = () => {
   const [searchedBooks, setSearchedBooks] = useState([]);
@@ -100,15 +99,25 @@ const SearchBooks = () => {
         className="uk-child-width-1-3@m uk-grid-small uk-grid-match"
         uk-grid="true">
         {searchedBooks.map((book, i) => (
-          <Books
-            key={i}
-            bookId={book.bookId}
-            title={book.title}
-            authors={book.authors}
-            description={book.description}
-            image={book.image}
-            onClick={handleSaveBook}
-            disabled={true}/>
+          <Link
+            to={{
+              pathname: `/book`,
+            }}
+            state={{
+              ...book,
+            }}
+            key={`book_${i}`}>
+            <Books
+              key={i}
+              bookId={book.bookId}
+              title={book.title}
+              authors={book.authors}
+              description={book.description}
+              image={book.image}
+              onClick={handleSaveBook}
+              disabled={true}
+            />
+          </Link>
         ))}
       </div>
     </>
