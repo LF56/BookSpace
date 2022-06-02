@@ -26,7 +26,7 @@ function SingleBook() {
               <h2>{title}</h2>
               <h4>{authors}</h4>
               <img src={image} alt={`cover of ${title}`} />
-              <p>{description}</p>
+              <p className="uk-panel-scrollable">{description}</p>
             </div>
           </div>
         </div>
@@ -60,7 +60,7 @@ function SingleBook() {
                   cols="100"
                   placeholder="Add your review..."></textarea>
                 <button
-                  className="uk-button uk-button-danger uk-position-default uk-border-rounded"
+                  className="uk-button uk-position-default uk-border-rounded"
                   type="submit">
                   ADD YOUR REVIEW
                 </button>
