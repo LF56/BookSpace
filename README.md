@@ -37,6 +37,10 @@ To use this application, first simply sign up or login. From there, you have acc
 
 
 # Images
+  <img width="1003" alt="Screen Shot 2022-06-01 at 9 42 21 PM" src="https://user-images.githubusercontent.com/94761193/171533099-f1d2729e-59d1-4055-a828-cfecd3d023ab.png">
+<img width="1579" alt="Screen Shot 2022-06-01 at 9 41 09 PM" src="https://user-images.githubusercontent.com/94761193/171533135-e727b78c-88aa-45fc-996c-87646091aaa5.png">
+
+<img width="1524" alt="Screen Shot 2022-06-01 at 9 41 39 PM" src="https://user-images.githubusercontent.com/94761193/171533173-0f826a9d-6aab-438a-ae74-8bbc59fc2089.png">
 
 
 
