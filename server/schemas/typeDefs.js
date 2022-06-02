@@ -5,8 +5,7 @@ const typeDefs = gql`
     me: User
     users: [User]
     user(username: String!): User
-    reviews: [Review]
-    review(_id: ID!): Review
+    reviews(bookId: String): [Review]
   }
 
   type User {
@@ -46,6 +45,8 @@ const typeDefs = gql`
     username: String
     bookId: String
     reviewText: String
+    createdAt: String
+    comments: [Comment]
   }
 
   input ReviewInput {
@@ -55,12 +56,19 @@ const typeDefs = gql`
     reviewText: String
   }
 
+  type Comment {
+    _id: ID!
+    username: String
+    createdAt: String
+    commentText: String
+  }
+
   type Mutation {
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addToList(input: BookInput!): User
     createReview(input: ReviewInput!): Review
-    removeBook(bookId: ID!): Book
+    removeBook(bookId: String!): User
     addComment(reviewId: ID!, commentText: String!): Review
   }
 `;

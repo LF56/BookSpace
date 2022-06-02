@@ -16,7 +16,7 @@ function Books(props) {
         <h3 className="uk-card-title" id="book-title">
           {props.title}
         </h3>
-        <p className="book-authors">{props.authors}</p>
+        <p className="book-authors">Author:{props.authors}</p>
         <p className="uk-panel-scrollable" id="book-description">
           {props.description}
         </p>
