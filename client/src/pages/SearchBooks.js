@@ -114,8 +114,8 @@ const SearchBooks = () => {
               authors={book.authors}
               description={book.description}
               image={book.image}
-              onClick={handleSaveBook}
               disabled={true}
+              onClick={handleSaveBook}
             />
           </Link>
         ))}

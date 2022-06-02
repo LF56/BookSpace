@@ -40,11 +40,6 @@ text-transform:uppercase;
 font-family: 'Dosis', sans-serif;
 
 }
-.uk-link, a:hover{
-  background-color:rgba(0, 0, 139, 0.393);
-  text-decoration: none;
-  font-family: 'Dosis', sans-serif;
-}
 #nav-right {
   display: flex;
   justify-content: end;
