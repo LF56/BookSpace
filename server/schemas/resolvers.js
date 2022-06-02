@@ -69,12 +69,11 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    createReview: async (parent, { input }, context) => {
+    createReview: async (parent, { reviewText, bookId }, context) => {
       if (context.user) {
         const review = await Review.create({
-          stars: input.stars,
-          reviewText: input.reviewText,
-          bookId: input.bookId,
+          reviewText: reviewText,
+          bookId: bookId,
           username: context.user.username,
         });
 

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { CREATE_REVIEW } from "../utils/mutations";
@@ -8,11 +8,40 @@ import { Link } from "react-router-dom";
 function SingleBook() {
   const location = useLocation();
   const { authors, bookId, description, image, title } = location.state;
-  console.log(location);
   const { loading, data } = useQuery(QUERY_REVIEWS, {
     variables: { bookId: bookId },
   });
   const reviews = data?.reviews || [];
+  const [reviewText, setReviewText] = useState("");
+  const [createReview] = useMutation(CREATE_REVIEW, {
+    update(cache, { data: { createReview } }) {
+      const { reviews } = cache.readQuery({
+        query: QUERY_REVIEWS,
+        variables: { bookId: bookId },
+      });
+      cache.writeQuery({
+        query: QUERY_REVIEWS,
+        variables: { variables: [createReview, ...reviews] },
+      });
+    },
+  });
+
+  const handleChange = async (event) => {
+    setReviewText(event.target.value);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      await createReview({
+        variables: { reviewText, bookId: bookId },
+      });
+      setReviewText("");
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   return (
     <>
@@ -50,15 +79,17 @@ function SingleBook() {
                 ))
               )}
             </div>
-            <form className="comment-form">
+            <form className="review-form" onSubmit={handleSubmit}>
               <div className="uk-panel uk-margin-top  uk-object-scale-down">
                 <textarea
-                  name="comment-body"
-                  id="comment-body"
+                  name="review-body"
+                  id="review-body"
                   className="uk-textarea uk-border-rounded"
                   rows="10"
                   cols="100"
-                  placeholder="Add your review..."></textarea>
+                  value={reviewText}
+                  placeholder="Add your review..."
+                  onChange={handleChange}></textarea>
                 <button
                   className="uk-button uk-button-danger uk-position-default uk-border-rounded"
                   type="submit">

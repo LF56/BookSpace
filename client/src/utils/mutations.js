@@ -60,10 +60,9 @@ export const REMOVE_BOOK = gql`
 
 //CREATE REVIEW FUNCTIONALITY
 export const CREATE_REVIEW = gql`
-  mutation createReview($input: ReviewInput!) {
-    createReview(input: $input) {
+  mutation createReview($reviewText: String!, $bookId: String!) {
+    createReview(reviewText: $reviewText, bookId: $bookId) {
       _id
-      stars
       username
       bookId
       reviewText
