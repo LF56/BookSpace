@@ -2,7 +2,7 @@ import React from "react";
 
 function Books(props) {
   return (
-    <div className="uk-card-small uk-height-max-meduim">
+    <>
       <div className="uk-card-media-top">
         <img
           src={props.image}
@@ -21,11 +21,8 @@ function Books(props) {
           {props.description}
         </p>
         <p>{props.stars}</p>
-        <button className="uk-button" id={props.bookId} onClick={props.onClick}>
-          I Want to read this!
-        </button>
       </div>
-    </div>
+    </>
   );
 }
 

@@ -99,25 +99,32 @@ const SearchBooks = () => {
         className="uk-child-width-1-3@m uk-grid-small uk-grid-match"
         uk-grid="true">
         {searchedBooks.map((book, i) => (
-          <Link
-            to={{
-              pathname: `/book`,
-            }}
-            state={{
-              ...book,
-            }}
-            key={`book_${i}`}>
-            <Books
-              key={i}
-              bookId={book.bookId}
-              title={book.title}
-              authors={book.authors}
-              description={book.description}
-              image={book.image}
-              disabled={true}
-              onClick={handleSaveBook}
-            />
-          </Link>
+          <div className="uk-card-small uk-height-max-meduim">
+            <Link
+              to={{
+                pathname: `/book`,
+              }}
+              state={{
+                ...book,
+              }}
+              key={`book_${i}`}>
+              <Books
+                key={i}
+                bookId={book.bookId}
+                title={book.title}
+                authors={book.authors}
+                description={book.description}
+                image={book.image}
+                disabled={true}
+              />
+            </Link>
+            <button
+              className="uk-button"
+              id={book.bookId}
+              onClick={handleSaveBook}>
+              I Want to read this!
+            </button>
+          </div>
         ))}
       </div>
     </>
