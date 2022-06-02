@@ -9,7 +9,7 @@ import { REMOVE_BOOK } from "../utils/mutations";
 import { Link } from "react-router-dom";
 
 const WantTo = () => {
-  const { loading, data } = useQuery(GET_ME);
+  const { loading, data, refetch } = useQuery(GET_ME);
   const [removeBook] = useMutation(REMOVE_BOOK);
   const userData = data?.me || [];
   //   const userDataLength = Object.keys(userData).length;
@@ -28,6 +28,7 @@ const WantTo = () => {
       });
 
       removeBookId(bookId);
+      refetch();
     } catch (err) {
       console.error(err);
     }
