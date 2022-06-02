@@ -13,6 +13,21 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+.uk-grid-column-small, .uk-grid-small {
+  margin-left: -15px;
+  text-align: center;
+justify-content: center;
+}
+.uk-h2, h2 {
+  font-size: 1.7rem;
+  line-height: 1.3;
+  color: #e5e5e5;
+  font-size: xx-large;
+  padding-top: 100px;
+}
+#reviews{
+  background-color:#e5e5e5;
+}
 
 .uk-link, a {
   color: #e5e5e5;
@@ -24,11 +39,6 @@ text-decoration: none;
 text-transform:uppercase;
 font-family: 'Dosis', sans-serif;
 
-}
-.uk-link, a:hover{
-  background-color:rgba(0, 0, 139, 0.393);
-  text-decoration: none;
-  font-family: 'Dosis', sans-serif;
 }
 #nav-right {
   display: flex;
@@ -109,7 +119,7 @@ canvas, img, svg, video {
 #book-card{
   background-color: rgba(0, 0, 139, 0.314);
 }
-#book-title , #book-description, .book-authors{
+#book-title , #book-description, .book-authors, h4{
   color: #e5e5e5;
   text-align: center;
   font-family: 'DM Sans', sans-serif;
