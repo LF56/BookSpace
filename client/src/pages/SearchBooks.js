@@ -115,6 +115,7 @@ const SearchBooks = () => {
                 disabled={true}
               />
             </Link>
+            <div>
             <button
               className="uk-button"
               key={`btn_${book.bookId}`}
@@ -122,6 +123,7 @@ const SearchBooks = () => {
               onClick={handleSaveBook}>
               I Want to read this!
             </button>
+            </div>
           </div>
         ))}
       </div>
