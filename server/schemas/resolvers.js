@@ -11,7 +11,6 @@ const resolvers = {
           .populate("reviews")
           .populate("readingList");
 
-        console.log(userData);
         return userData;
       }
       throw new AuthenticationError("You need to be logged in!");

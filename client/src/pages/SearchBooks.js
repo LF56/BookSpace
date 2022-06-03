@@ -87,7 +87,7 @@ const SearchBooks = () => {
               onChange={(e) => setSearchInput(e.target.value)}
             />
             <button
-              className="uk-button uk-button-default"
+              className="uk-button"
               id="search-btn"
               type="submit">
               Search
@@ -118,6 +118,7 @@ const SearchBooks = () => {
                 disabled={true}
               />
             </Link>
+<<<<<<< HEAD
             <button
               className="uk-button"
               key={`btn_${book.bookId}`}
@@ -125,6 +126,16 @@ const SearchBooks = () => {
               onClick={handleSaveBook}>
               I Want to read this!
             </button>
+=======
+            <div>
+              <button
+                className="uk-button"
+                id={book.bookId}
+                onClick={handleSaveBook}>
+                I Want to read this!
+              </button>
+            </div>
+>>>>>>> e76a16019172f578b5c76368fae31dc8146ba49b
           </div>
         ))}
       </div>
