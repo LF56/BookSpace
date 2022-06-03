@@ -13,6 +13,17 @@ export const GET_ME = gql`
         link
         title
       }
+      reviews {
+        _id
+        reviewText
+        createdAt
+        comments {
+          _id
+          createdAt
+          commentText
+          username
+        }
+      }
     }
   }
 `;

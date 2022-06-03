@@ -2,26 +2,38 @@ import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useQuery, useMutation } from "@apollo/client";
 import { CREATE_REVIEW } from "../utils/mutations";
-import { QUERY_REVIEWS } from "../utils/queries";
+import { QUERY_REVIEWS, GET_ME } from "../utils/queries";
 import { Link } from "react-router-dom";
 
 function SingleBook() {
   const location = useLocation();
   const { authors, bookId, description, image, title } = location.state;
-  const { loading, data } = useQuery(QUERY_REVIEWS, {
+  const { loading, data, refetch } = useQuery(QUERY_REVIEWS, {
     variables: { bookId: bookId },
   });
   const reviews = data?.reviews || [];
   const [reviewText, setReviewText] = useState("");
+  const me = useQuery(GET_ME);
+  console.log(me);
   const [createReview] = useMutation(CREATE_REVIEW, {
     update(cache, { data: { createReview } }) {
+      try {
+        const { me } = cache.readQuery({ query: GET_ME });
+        cache.writeQuery({
+          query: GET_ME,
+          data: { me: { ...me, reviews: [...me.reviews, createReview] } },
+        });
+      } catch (err) {
+        console.warn("First review by user.");
+      }
+
       const { reviews } = cache.readQuery({
         query: QUERY_REVIEWS,
         variables: { bookId: bookId },
       });
       cache.writeQuery({
         query: QUERY_REVIEWS,
-        variables: { variables: [createReview, ...reviews] },
+        data: { reviews: [createReview, ...reviews] },
       });
     },
   });
@@ -38,6 +50,7 @@ function SingleBook() {
         variables: { reviewText, bookId: bookId },
       });
       setReviewText("");
+      refetch();
     } catch (err) {
       console.log(err);
     }

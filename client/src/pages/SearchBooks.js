@@ -120,6 +120,7 @@ const SearchBooks = () => {
             </Link>
             <button
               className="uk-button"
+              key={`btn_${book.bookId}`}
               id={book.bookId}
               onClick={handleSaveBook}>
               I Want to read this!
