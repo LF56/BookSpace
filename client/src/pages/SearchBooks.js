@@ -115,13 +115,7 @@ const SearchBooks = () => {
                 disabled={true}
               />
             </Link>
-            {getSavedBookIds().includes(book.bookId) ? (
-              <button
-                className="uk-button uk-disabled"
-                key={`btn_${book.bookId}`}>
-                Already Saved to List!
-              </button>
-            ) : (
+            <div>
               <button
                 className="uk-button"
                 key={`btn_${book.bookId}`}
@@ -129,7 +123,7 @@ const SearchBooks = () => {
                 onClick={handleSaveBook}>
                 I Want to read this!
               </button>
-            )}
+            </div>
           </div>
         ))}
       </div>
