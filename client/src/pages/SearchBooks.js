@@ -71,7 +71,7 @@ const SearchBooks = () => {
       console.error(err);
     }
   };
-
+  console.log(getSavedBookIds());
   return (
     <>
       <div className="uk-container" id="search-book">
@@ -115,13 +115,21 @@ const SearchBooks = () => {
                 disabled={true}
               />
             </Link>
-            <button
-              className="uk-button"
-              key={`btn_${book.bookId}`}
-              id={book.bookId}
-              onClick={handleSaveBook}>
-              I Want to read this!
-            </button>
+            {getSavedBookIds().includes(book.bookId) ? (
+              <button
+                className="uk-button uk-disabled"
+                key={`btn_${book.bookId}`}>
+                Already Saved to List!
+              </button>
+            ) : (
+              <button
+                className="uk-button"
+                key={`btn_${book.bookId}`}
+                id={book.bookId}
+                onClick={handleSaveBook}>
+                I Want to read this!
+              </button>
+            )}
           </div>
         ))}
       </div>
