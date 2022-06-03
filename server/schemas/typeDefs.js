@@ -41,19 +41,11 @@ const typeDefs = gql`
 
   type Review {
     _id: ID!
-    stars: String
     username: String
     bookId: String
     reviewText: String
     createdAt: String
     comments: [Comment]
-  }
-
-  input ReviewInput {
-    stars: String
-    username: String
-    bookId: String
-    reviewText: String
   }
 
   type Comment {
@@ -67,7 +59,7 @@ const typeDefs = gql`
     login(email: String!, password: String!): Auth
     addUser(username: String!, email: String!, password: String!): Auth
     addToList(input: BookInput!): User
-    createReview(input: ReviewInput!): Review
+    createReview(reviewText: String!, bookId: String): Review
     removeBook(bookId: String!): User
     addComment(reviewId: ID!, commentText: String!): Review
   }

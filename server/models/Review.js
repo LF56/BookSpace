@@ -23,10 +23,6 @@ const reviewSchema = new Schema(
       type: String,
       required: true,
     },
-    stars: {
-      type: String,
-      required: true,
-    },
     comments: [commentSchema],
   },
   {

@@ -20,7 +20,6 @@ function Books(props) {
         <p className="uk-panel-scrollable" id="book-description">
           {props.description}
         </p>
-        <p>{props.stars}</p>
       </div>
     </>
   );
