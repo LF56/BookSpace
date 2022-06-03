@@ -2,7 +2,7 @@ import React from "react";
 
 function Books(props) {
   return (
-    <div className="uk-card-small uk-height-max-meduim">
+    <div className="uk-card-small uk-height-max-medium">
       <div className="uk-card-media-top">
         <img
           src={props.image}

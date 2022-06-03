@@ -4,14 +4,37 @@ import { useQuery, useMutation } from "@apollo/client";
 import { CREATE_REVIEW } from "../utils/mutations";
 import { QUERY_REVIEWS } from "../utils/queries";
 import { Link } from "react-router-dom";
+import Auth from "../utils/auth";
 
 function SingleBook() {
   const location = useLocation();
-  const { authors, bookId, description, image, title } = location.state;
+  const [createReview] = useMutation(CREATE_REVIEW);
+  
+  const { authors, bookId, description, image, title } = location.state || {};
   const { loading, data } = useQuery(QUERY_REVIEWS, {
     variables: { bookId: bookId },
+    
   });
   const reviews = data?.reviews || [];
+
+  const handleCreateReview = (review) => async (bookId) => {
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+    if (!token) {
+      return false;
+    }
+
+    try {
+      const { data } = await createReview({
+        variables: { bookId },
+      });
+
+      createReview(bookId);
+      
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <>
@@ -19,8 +42,8 @@ function SingleBook() {
       <div className="uk-child-width-1-3@m uk-grid-small uk-grid-match"
         uk-grid="true">
         <div>
-          <div class="uk-card uk-card-default" id="single-book">
-            <div class="uk-card-media-top">
+          <div className="uk-card uk-card-default" id="single-book">
+            <div className="uk-card-media-top">
               <h2>{title}</h2>
               <h4>{authors}</h4>
               <img src={image} alt={`cover of ${title}`} />
@@ -32,7 +55,7 @@ function SingleBook() {
         <div className="uk-child-width-1-3@m uk-grid-small uk-grid-match"
           uk-grid="true">
           <div>
-            <div class="uk-card uk-card" id="rewiews">
+            <div className="uk-card uk-card" id="rewiews">
               <h2>My Reviews</h2>
               {loading ? (
                 <div>Loading...</div>
@@ -51,7 +74,7 @@ function SingleBook() {
               <div className="uk-panel uk-margin-top  uk-object-scale-down">
                 <textarea name="comment-body" id="comment-body" className="uk-textarea uk-border-rounded" rows="10" cols="100"
                   placeholder="ADD REVIEW HERE"></textarea>
-                <button className="uk-button uk-button-danger uk-position-default uk-border-rounded" type="submit">ADD YOUR REVIEW</button>
+                <button className="uk-button uk-button-danger uk-position-default uk-border-rounded" type="submit" onClick={() => handleCreateReview}>ADD YOUR REVIEW</button>
               </div>
             </form>
           </div>

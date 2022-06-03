@@ -50,9 +50,9 @@ const SearchBooks = () => {
   };
 
   // saving book to database
-  const handleSaveBook = async (event) => {
+  const handleSaveBook = async (bookId) => {
     const bookToSave = searchedBooks.find(
-      (book) => book.bookId === event.target.id
+      (book) => book.bookId === bookId.target.id
     );
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -117,9 +117,12 @@ const SearchBooks = () => {
               disabled={true}
               onClick={handleSaveBook}
             />
+            
           </Link>
+          
         ))}
       </div>
+      
     </>
   );
 };

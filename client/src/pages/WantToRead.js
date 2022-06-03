@@ -12,7 +12,7 @@ const WantTo = () => {
   const { loading, data, refetch } = useQuery(GET_ME);
   const [removeBook] = useMutation(REMOVE_BOOK);
   const userData = data?.me || [];
-  //   const userDataLength = Object.keys(userData).length;
+    // const userDataLength = Object.keys(userData).length;
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleRemoveBook = async (bookId) => {
