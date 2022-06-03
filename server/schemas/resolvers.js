@@ -6,10 +6,11 @@ const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id }).select(
-          "-__v -password"
-        );
-        console.log(userData);
+        const userData = await User.findOne({ _id: context.user._id })
+          .select("-__v -password")
+          .populate("reviews")
+          .populate("readingList");
+
         return userData;
       }
       throw new AuthenticationError("You need to be logged in!");
@@ -69,11 +70,10 @@ const resolvers = {
       }
       throw new AuthenticationError("You need to be logged in!");
     },
-    createReview: async (parent, { reviewText, bookId }, context) => {
+    createReview: async (parent, args, context) => {
       if (context.user) {
         const review = await Review.create({
-          reviewText: reviewText,
-          bookId: bookId,
+          ...args,
           username: context.user.username,
         });
 

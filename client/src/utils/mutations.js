@@ -66,6 +66,10 @@ export const CREATE_REVIEW = gql`
       username
       bookId
       reviewText
+      createdAt
+      comments {
+        _id
+      }
     }
   }
 `;
